@@ -6,46 +6,50 @@
 [![Go Report Card](https://goreportcard.com/badge/github.com/itering/subscan)](https://goreportcard.com/report/github.com/itering/subscan)
 ![subscan](https://github.com/itering/subscan/workflows/subscan/badge.svg)
 
-Subscan Essentials is a high-precision blockchain explorer scaffold project. 
-It supports substrate-based blockchain networks with developer-friendly interface, standard or custom module parsing capabilities. 
-It's developed by the Subscan team and used in subscan.io. 
+Subscan Essentials is a high-precision blockchain explorer scaffold project.
+It supports substrate-based blockchain networks with developer-friendly interface, standard or custom module parsing capabilities.
+It's developed by the Subscan team and used in subscan.io.
 Developers are free to use the codebase to extend functionalities and develop unique user experiences for their audiences.
 
 ## Contents
 
-- [Feature](#Feature)
-- [QuickStart](#QuickStart)
-  - [Requirement](#Requirement)
-  - [Structure](docs/tree.md)
-  - [Installation](#Install)
-  - [UI](#UI)
-  - [Config](#Config)
-  - [Usage](#Usage)
-  - [Docker](#Docker)
-  - [Test](#Test)
-- [Contributions](#Contributions)
-- [LICENSE](#LICENSE)
-- [Resource](#Resource)
+- [Subscan Essentials](#subscan-essentials)
+  - [Contents](#contents)
+  - [Feature](#feature)
+  - [QuickStart](#quickstart)
+    - [Requirement](#requirement)
+    - [Install](#install)
+    - [UI](#ui)
+      - [Example](#example)
+      - [Feature Supported](#feature-supported)
+    - [Config](#config)
+      - [Init config file](#init-config-file)
+      - [Set](#set)
+    - [Usage](#usage)
+    - [Docker](#docker)
+    - [Test](#test)
+  - [Contributions](#contributions)
+  - [LICENSE](#license)
+  - [Resource](#resource)
 
 ## Feature
 
-1. Support Substrate network [custom](/custom_type.md) type registration 
+1. Support Substrate network [custom](/custom_type.md) type registration
 2. Support index Block, Extrinsic, Event, log
 3. More data can be indexed by custom [plugins](/plugins)
 4. [Gen](https://github.com/itering/subscan-plugin/tree/master/tools) tool can automatically generate plugin templates
 5. Built-in default HTTP API [DOC](/docs/index.md)
 
-
 ## QuickStart
 
 ### Requirement
 
-* Linux / Mac OSX
-* Git
-* Golang 1.12.4+
-* Redis 3.0.4+
-* MySQL 5.6+
-* Node 8.9.0+
+- Linux / Mac OSX
+- Git
+- Golang 1.12.4+
+- Redis 3.0.4+
+- MySQL 5.6+
+- Node 8.9.0+
 
 ### Install
 
@@ -102,10 +106,9 @@ Then click search button, result will be shown in the output section.
 - search runtime info by spec version
 - plugin (blocks, events)
 
-
 ### Config
 
-#### Init config file 
+#### Init config file
 
 ```bash
 cp configs/redis.toml.example configs/redis.toml && cp configs/mysql.toml.example configs/mysql.toml && cp configs/http.toml.example configs/http.toml
@@ -113,21 +116,20 @@ cp configs/redis.toml.example configs/redis.toml && cp configs/mysql.toml.exampl
 
 #### Set
 
-1. Redis  configs/redis.toml
+1. Redis configs/redis.toml
 
 > addr： redis host and port (default: 127.0.0.1:6379)
 
-2. Mysql  configs/mysql.toml
+2. Mysql configs/mysql.toml
 
 > host: mysql host (default: 127.0.0.1)
 > user: mysql user (default: root)
 > pass: mysql user passwd (default: "")
-> db:   mysql db name (default: "subscan")
+> db: mysql db name (default: "subscan")
 
-3. Http   configs/http.toml
+3. Http configs/http.toml
 
 > addr: local http server port (default: 0.0.0.0:4399)
-
 
 ### Usage
 
@@ -136,18 +138,20 @@ cp configs/redis.toml.example configs/redis.toml && cp configs/mysql.toml.exampl
 **Make sure you have started redis and mysql**
 
 - Substrate Daemon
+
 ```bash
 cd cmd
 ./subscan start substrate
 ```
 
 - Api Server
+
 ```bash
 cd cmd
 ./subscan
 ```
 
-- Help 
+- Help
 
 ```
 NAME:
@@ -178,7 +182,7 @@ GLOBAL OPTIONS:
 
 ### Docker
 
-Use [docker-compose](https://docs.docker.com/compose/) can start projects quickly 
+Use [docker-compose](https://docs.docker.com/compose/) can start projects quickly
 
 Create local network
 
@@ -201,7 +205,6 @@ docker-compose up -d
 
 ### Test
 
-
 **default test mysql database is subscan_test. Please CREATE it or change configs/mysql.toml**
 
 ```bash
@@ -211,7 +214,6 @@ go test ./...
 cd ui && yarn && yarn test
 ```
 
-
 ## Contributions
 
 We welcome contributions of any kind. Issues labeled can be good (first) contributions.
@@ -220,8 +222,7 @@ We welcome contributions of any kind. Issues labeled can be good (first) contrib
 
 GPL-3.0
 
-
 ## Resource
- 
+
 - [ITERING] https://github.com/itering
 - [Darwinia] https://github.com/darwinia-network/darwinia

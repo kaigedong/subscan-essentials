@@ -1,4 +1,10 @@
 {
+  "Weight": "u64",
+  "CompactAssignments": "CompactAssignmentsLatest",
+  "RefCount": "u32",
+  "Address": "MultiAddress",
+  "LookupSource": "MultiAddress",
+  "AccountInfo": "AccountInfoWithProviders",
   "ReportId": "u64",
   "SlashId": "u64",
   "BoxPubkey": "[u8; 32]",
