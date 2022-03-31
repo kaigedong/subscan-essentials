@@ -1,15 +1,16 @@
 package service
 
 import (
-	"github.com/go-kratos/kratos/pkg/log"
-	"github.com/gorilla/websocket"
-	"github.com/itering/substrate-api-rpc/rpc"
-	ws "github.com/itering/substrate-api-rpc/websocket"
 	"math/rand"
 	"os"
 	"os/signal"
 	"syscall"
 	"time"
+
+	"github.com/go-kratos/kratos/pkg/log"
+	"github.com/gorilla/websocket"
+	"github.com/itering/substrate-api-rpc/rpc"
+	ws "github.com/itering/substrate-api-rpc/websocket"
 )
 
 const (
@@ -37,7 +38,8 @@ func (s *Service) Subscribe(conn ws.WsConn, interrupt chan os.Signal) {
 			_, message, err := conn.ReadMessage()
 			if err != nil {
 				log.Error("read: %s", err)
-				continue
+				return
+				// continue
 			}
 			_ = subscribeSrv.parser(message)
 		}
@@ -75,5 +77,4 @@ func (s *Service) Subscribe(conn ws.WsConn, interrupt chan os.Signal) {
 			return
 		}
 	}
-
 }
