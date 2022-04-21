@@ -39,7 +39,8 @@ func (s *Service) Subscribe(conn ws.WsConn, interrupt chan os.Signal) {
 			if err != nil {
 				log.Error("read: %s", err)
 				time.Sleep(1 * time.Second)
-				continue
+				return
+				// continue
 			}
 			_ = subscribeSrv.parser(message)
 		}
