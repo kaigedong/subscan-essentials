@@ -3,14 +3,15 @@ package service
 import (
 	"bytes"
 	"encoding/json"
-	"github.com/gorilla/websocket"
-	"github.com/itering/substrate-api-rpc/rpc"
 	"io"
 	"net/http"
 	"os"
 	"strings"
 	"syscall"
 	"testing"
+
+	"github.com/gorilla/websocket"
+	"github.com/kaigedong/substrate-api-rpc/rpc"
 )
 
 type Buffer struct {

@@ -9,8 +9,8 @@ import (
 
 	"github.com/go-kratos/kratos/pkg/log"
 	"github.com/gorilla/websocket"
-	"github.com/itering/substrate-api-rpc/rpc"
-	ws "github.com/itering/substrate-api-rpc/websocket"
+	"github.com/kaigedong/substrate-api-rpc/rpc"
+	ws "github.com/kaigedong/substrate-api-rpc/websocket"
 )
 
 const (
@@ -38,8 +38,8 @@ func (s *Service) Subscribe(conn ws.WsConn, interrupt chan os.Signal) {
 			_, message, err := conn.ReadMessage()
 			if err != nil {
 				log.Error("read: %s", err)
-				return
-				// continue
+				time.Sleep(1 * time.Second)
+				continue
 			}
 			_ = subscribeSrv.parser(message)
 		}

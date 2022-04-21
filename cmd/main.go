@@ -15,7 +15,7 @@ import (
 	"github.com/itering/subscan/internal/script"
 	"github.com/itering/subscan/internal/server/http"
 	"github.com/itering/subscan/internal/service"
-	"github.com/itering/substrate-api-rpc/websocket"
+	"github.com/kaigedong/substrate-api-rpc/websocket"
 	"github.com/urfave/cli"
 )
 

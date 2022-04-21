@@ -1,11 +1,12 @@
 package service
 
 import (
+	"testing"
+
 	"github.com/itering/subscan/model"
 	"github.com/itering/subscan/util"
-	"github.com/itering/substrate-api-rpc/rpc"
+	"github.com/kaigedong/substrate-api-rpc/rpc"
 	"github.com/stretchr/testify/assert"
-	"testing"
 )
 
 func TestService_CreateChainBlock(t *testing.T) {

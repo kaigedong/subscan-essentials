@@ -37,7 +37,7 @@ Developers are free to use the codebase to extend functionalities and develop un
 1. Support Substrate network [custom](/custom_type.md) type registration
 2. Support index Block, Extrinsic, Event, log
 3. More data can be indexed by custom [plugins](/plugins)
-4. [Gen](https://github.com/itering/subscan-plugin/tree/master/tools) tool can automatically generate plugin templates
+4. [Gen](https://github.com/kaigedong/subscan-plugin/tree/master/tools) tool can automatically generate plugin templates
 5. Built-in default HTTP API [DOC](/docs/index.md)
 
 ## QuickStart

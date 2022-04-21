@@ -2,11 +2,12 @@ package service
 
 import (
 	"context"
+
 	"github.com/itering/subscan/internal/dao"
 	"github.com/itering/subscan/model"
 	"github.com/itering/subscan/util"
-	"github.com/itering/substrate-api-rpc/metadata"
-	"github.com/itering/substrate-api-rpc/websocket"
+	"github.com/kaigedong/substrate-api-rpc/metadata"
+	"github.com/kaigedong/substrate-api-rpc/websocket"
 	"github.com/stretchr/testify/mock"
 )
 

@@ -1,8 +1,8 @@
 package model_test
 
 import (
-	"github.com/itering/subscan-plugin/storage"
 	"github.com/itering/subscan/model"
+	"github.com/kaigedong/subscan-plugin/storage"
 	"github.com/shopspring/decimal"
 	"github.com/stretchr/testify/assert"
 	"testing"

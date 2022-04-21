@@ -1,8 +1,8 @@
 package service
 
 import (
-	"github.com/itering/substrate-api-rpc/rpc"
-	"github.com/itering/substrate-api-rpc/websocket"
+	"github.com/kaigedong/substrate-api-rpc/rpc"
+	"github.com/kaigedong/substrate-api-rpc/websocket"
 	"github.com/shopspring/decimal"
 )
 

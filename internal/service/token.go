@@ -1,10 +1,11 @@
 package service
 
 import (
-	"github.com/itering/subscan/util"
-	"github.com/itering/substrate-api-rpc/rpc"
-	"github.com/itering/substrate-api-rpc/websocket"
 	"sync"
+
+	"github.com/itering/subscan/util"
+	"github.com/kaigedong/substrate-api-rpc/rpc"
+	"github.com/kaigedong/substrate-api-rpc/websocket"
 )
 
 var onceToken sync.Once

@@ -1,9 +1,9 @@
 package plugins
 
 import (
-	subscan_plugin "github.com/itering/subscan-plugin"
-	"github.com/itering/subscan-plugin/router"
-	"github.com/itering/subscan-plugin/storage"
+	subscan_plugin "github.com/kaigedong/subscan-plugin"
+	"github.com/kaigedong/subscan-plugin/router"
+	"github.com/kaigedong/subscan-plugin/storage"
 	"github.com/shopspring/decimal"
 	"github.com/stretchr/testify/assert"
 	"testing"

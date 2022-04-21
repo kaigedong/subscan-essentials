@@ -1,10 +1,10 @@
 package dao
 
 import (
-	"github.com/itering/subscan-plugin/storage"
 	"github.com/itering/subscan/plugins/system/model"
 	"github.com/itering/subscan/util"
-	"github.com/itering/substrate-api-rpc/metadata"
+	"github.com/kaigedong/subscan-plugin/storage"
+	"github.com/kaigedong/substrate-api-rpc/metadata"
 	"strings"
 )
 

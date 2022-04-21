@@ -4,7 +4,7 @@ import (
 	"context"
 
 	"github.com/itering/subscan/model"
-	"github.com/itering/substrate-api-rpc/metadata"
+	"github.com/kaigedong/substrate-api-rpc/metadata"
 )
 
 type IDao interface {

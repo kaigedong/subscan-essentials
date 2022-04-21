@@ -5,9 +5,9 @@ It is very convenient to save **Extrinsic** and **Event** to the database and pa
 
 ### Usage
 
-1. Refer [plugin](https://github.com/itering/subscan-plugin) to write the plugin you need
+1. Refer [plugin](https://github.com/kaigedong/subscan-plugin) to write the plugin you need
 
-1. Just import your plugin in ``plugins/registry.go`` like
+1. Just import your plugin in `plugins/registry.go` like
 
 ```
 func init() {
