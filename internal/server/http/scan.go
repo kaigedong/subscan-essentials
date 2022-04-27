@@ -56,7 +56,17 @@ func transfers(c *bm.Context) {
 		return
 	}
 
-	transfers, count := svc.GetTransfersSampleByNums(p.Address, p.Page, p.Row)
+	// SS58address 转换成 HexAddress，数据库中以HexAccount存储
+	var account string
+	if p.Address != "" {
+		account = ss58.Decode(p.Address, util.StringToInt(util.AddressType))
+		if account == "" {
+			c.JSON(nil, util.InvalidAccountAddress)
+			return
+		}
+	}
+
+	transfers, count := svc.GetTransfersSampleByNums(account, p.Page, p.Row)
 	c.JSON(map[string]interface{}{
 		"transfers": transfers, "count": count,
 	}, nil)
