@@ -11,10 +11,10 @@ import (
 
 	"github.com/go-kratos/kratos/pkg/conf/paladin"
 	"github.com/go-kratos/kratos/pkg/log"
-	"github.com/itering/subscan/internal/observer"
-	"github.com/itering/subscan/internal/script"
-	"github.com/itering/subscan/internal/server/http"
-	"github.com/itering/subscan/internal/service"
+	"github.com/kaigedong/subscan/internal/observer"
+	"github.com/kaigedong/subscan/internal/script"
+	"github.com/kaigedong/subscan/internal/server/http"
+	"github.com/kaigedong/subscan/internal/service"
 	"github.com/kaigedong/substrate-api-rpc/websocket"
 	"github.com/urfave/cli"
 )

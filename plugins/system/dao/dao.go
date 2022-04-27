@@ -1,11 +1,12 @@
 package dao
 
 import (
-	"github.com/itering/subscan/plugins/system/model"
-	"github.com/itering/subscan/util"
-	"github.com/kaigedong/subscan-plugin/storage"
-	"github.com/kaigedong/substrate-api-rpc/metadata"
 	"strings"
+
+	"github.com/kaigedong/subscan-plugin/storage"
+	"github.com/kaigedong/subscan/plugins/system/model"
+	"github.com/kaigedong/subscan/util"
+	"github.com/kaigedong/substrate-api-rpc/metadata"
 )
 
 func CreateExtrinsicError(db storage.DB, hash string, moduleError *model.MetadataModuleError) error {

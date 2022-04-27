@@ -3,9 +3,10 @@ package dao
 import (
 	"context"
 	"fmt"
-	"github.com/itering/subscan/model"
-	"github.com/itering/subscan/util"
 	"strings"
+
+	"github.com/kaigedong/subscan/model"
+	"github.com/kaigedong/subscan/util"
 )
 
 func (d *Dao) CreateEvent(txn *GormDB, event *model.ChainEvent) error {

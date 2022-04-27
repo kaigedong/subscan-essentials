@@ -1,9 +1,10 @@
 package dao
 
 import (
-	"github.com/itering/subscan/model"
-	"github.com/itering/subscan/util"
 	"strings"
+
+	"github.com/kaigedong/subscan/model"
+	"github.com/kaigedong/subscan/util"
 )
 
 func (d *Dao) CreateLog(txn *GormDB, ce *model.ChainLog) error {

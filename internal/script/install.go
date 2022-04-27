@@ -7,9 +7,9 @@ import (
 	"io"
 	"os"
 
-	"github.com/itering/subscan/internal/service"
-	"github.com/itering/subscan/model"
-	"github.com/itering/subscan/util"
+	"github.com/kaigedong/subscan/internal/service"
+	"github.com/kaigedong/subscan/model"
+	"github.com/kaigedong/subscan/util"
 )
 
 func Install(conf string) {

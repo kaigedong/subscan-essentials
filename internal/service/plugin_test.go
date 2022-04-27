@@ -1,9 +1,10 @@
 package service
 
 import (
-	"github.com/itering/subscan/model"
-	"github.com/shopspring/decimal"
 	"testing"
+
+	"github.com/kaigedong/subscan/model"
+	"github.com/shopspring/decimal"
 )
 
 func Test_emitEvent(t *testing.T) {

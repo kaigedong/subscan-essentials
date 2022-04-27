@@ -1,7 +1,7 @@
 package dao
 
 import (
-	"github.com/itering/subscan/model"
+	"github.com/kaigedong/subscan/model"
 	"github.com/kaigedong/substrate-api-rpc/metadata"
 )
 

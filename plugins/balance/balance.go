@@ -2,16 +2,17 @@ package balance
 
 import (
 	"fmt"
-	"github.com/itering/subscan/plugins/balance/dao"
-	"github.com/itering/subscan/plugins/balance/http"
-	"github.com/itering/subscan/plugins/balance/model"
-	"github.com/itering/subscan/plugins/balance/service"
-	"github.com/itering/subscan/util"
+	"strings"
+
 	plugin "github.com/kaigedong/subscan-plugin"
 	"github.com/kaigedong/subscan-plugin/router"
 	"github.com/kaigedong/subscan-plugin/storage"
+	"github.com/kaigedong/subscan/plugins/balance/dao"
+	"github.com/kaigedong/subscan/plugins/balance/http"
+	"github.com/kaigedong/subscan/plugins/balance/model"
+	"github.com/kaigedong/subscan/plugins/balance/service"
+	"github.com/kaigedong/subscan/util"
 	"github.com/shopspring/decimal"
-	"strings"
 )
 
 var srv *service.Service

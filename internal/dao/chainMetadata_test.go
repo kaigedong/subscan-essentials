@@ -2,10 +2,11 @@ package dao
 
 import (
 	"context"
-	"github.com/garyburd/redigo/redis"
-	"github.com/itering/subscan/util"
-	"github.com/stretchr/testify/assert"
 	"testing"
+
+	"github.com/garyburd/redigo/redis"
+	"github.com/kaigedong/subscan/util"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestDao_SetMetadata(t *testing.T) {

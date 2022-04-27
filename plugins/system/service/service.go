@@ -1,10 +1,10 @@
 package service
 
 import (
-	"github.com/itering/subscan/plugins/system/dao"
-	"github.com/itering/subscan/plugins/system/model"
-	"github.com/itering/subscan/util"
 	"github.com/kaigedong/subscan-plugin/storage"
+	"github.com/kaigedong/subscan/plugins/system/dao"
+	"github.com/kaigedong/subscan/plugins/system/model"
+	"github.com/kaigedong/subscan/util"
 )
 
 type Service struct {

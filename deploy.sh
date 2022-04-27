@@ -28,14 +28,11 @@ sudo systemctl start redis
 cp configs/redis.toml.example configs/redis.toml && cp configs/mysql.toml.example configs/mysql.toml && cp configs/http.toml.example configs/http.toml
 ```
 
-3.
+3. 启动服务
 
 ```bash
-
-
 // 注意，util.env.go中定义了一些环境变量，需要根据实际情况来修改
 // 下面这个定义，既是configs/source/congtu.json，又是上游仓库scale.go中network/congtu.json的值
-export NetworkNode="congtu"
 ❯ go build -o ./cmd/subscan -v ./cmd
 
 ./subscan start substrate

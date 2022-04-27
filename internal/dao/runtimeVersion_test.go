@@ -1,10 +1,11 @@
 package dao
 
 import (
-	"github.com/itering/subscan/model"
+	"testing"
+
+	"github.com/kaigedong/subscan/model"
 	"github.com/kaigedong/substrate-api-rpc/metadata"
 	"github.com/stretchr/testify/assert"
-	"testing"
 )
 
 func TestDao_CreateRuntimeVersion(t *testing.T) {

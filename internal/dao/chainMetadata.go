@@ -2,10 +2,11 @@ package dao
 
 import (
 	"context"
-	"github.com/go-kratos/kratos/pkg/cache/redis"
-	"github.com/itering/subscan/util"
-	"github.com/pkg/errors"
 	"reflect"
+
+	"github.com/go-kratos/kratos/pkg/cache/redis"
+	"github.com/kaigedong/subscan/util"
+	"github.com/pkg/errors"
 )
 
 func (d *Dao) SetMetadata(c context.Context, metadata map[string]interface{}) (err error) {

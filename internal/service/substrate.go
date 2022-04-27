@@ -9,7 +9,7 @@ import (
 	"time"
 
 	"github.com/go-kratos/kratos/pkg/log"
-	"github.com/itering/subscan/util"
+	"github.com/kaigedong/subscan/util"
 	"github.com/kaigedong/substrate-api-rpc/rpc"
 	"github.com/kaigedong/substrate-api-rpc/websocket"
 	"github.com/panjf2000/ants/v2"

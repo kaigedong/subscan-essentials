@@ -1,11 +1,12 @@
 package model_test
 
 import (
-	"github.com/itering/subscan/model"
+	"testing"
+
 	"github.com/kaigedong/subscan-plugin/storage"
+	"github.com/kaigedong/subscan/model"
 	"github.com/shopspring/decimal"
 	"github.com/stretchr/testify/assert"
-	"testing"
 )
 
 var testCases = []struct {

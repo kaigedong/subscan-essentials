@@ -2,12 +2,13 @@ package service
 
 import (
 	"fmt"
-	"github.com/itering/subscan/internal/dao"
-	"github.com/itering/subscan/model"
-	"github.com/itering/subscan/util"
+	"strings"
+
+	"github.com/kaigedong/subscan/internal/dao"
+	"github.com/kaigedong/subscan/model"
+	"github.com/kaigedong/subscan/util"
 	"github.com/kaigedong/substrate-api-rpc"
 	"github.com/kaigedong/substrate-api-rpc/storage"
-	"strings"
 )
 
 func (s *Service) EmitLog(txn *dao.GormDB, blockNum int, l []storage.DecoderLog, finalized bool, validatorList []string) (validator string, err error) {

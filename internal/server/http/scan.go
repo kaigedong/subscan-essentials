@@ -3,11 +3,12 @@ package http
 import (
 	"context"
 	"fmt"
+
 	bm "github.com/go-kratos/kratos/pkg/net/http/blademaster"
 	"github.com/go-kratos/kratos/pkg/net/http/blademaster/binding"
-	"github.com/itering/subscan/plugins"
-	"github.com/itering/subscan/util"
-	"github.com/itering/subscan/util/ss58"
+	"github.com/kaigedong/subscan/plugins"
+	"github.com/kaigedong/subscan/util"
+	"github.com/kaigedong/subscan/util/ss58"
 )
 
 func metadata(c *bm.Context) {
@@ -43,6 +44,22 @@ func block(c *bm.Context) {
 	} else {
 		c.JSON(svc.GetBlockByHashJson(p.BlockHash), nil)
 	}
+}
+
+func transfers(c *bm.Context) {
+	p := new(struct {
+		Row     int    `json:"row" validate:"min=1,max=100"`
+		Page    int    `json:"page" validate:"min=0"`
+		Address string `json:"address" validate:"omitempty"`
+	})
+	if err := c.BindWith(p, binding.JSON); err != nil {
+		return
+	}
+
+	transfers, count := svc.GetTransfersSampleByNums(p.Address, p.Page, p.Row)
+	c.JSON(map[string]interface{}{
+		"transfers": transfers, "count": count,
+	}, nil)
 }
 
 func extrinsics(c *bm.Context) {

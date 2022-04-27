@@ -1,12 +1,12 @@
 package system
 
 import (
-	"github.com/itering/subscan/plugins/system/model"
-	"github.com/itering/subscan/plugins/system/service"
-	"github.com/itering/subscan/util"
 	ui "github.com/kaigedong/subscan-plugin"
 	"github.com/kaigedong/subscan-plugin/router"
 	"github.com/kaigedong/subscan-plugin/storage"
+	"github.com/kaigedong/subscan/plugins/system/model"
+	"github.com/kaigedong/subscan/plugins/system/service"
+	"github.com/kaigedong/subscan/util"
 	"github.com/shopspring/decimal"
 )
 

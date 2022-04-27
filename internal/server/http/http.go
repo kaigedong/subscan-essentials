@@ -3,9 +3,9 @@ package http
 import (
 	"github.com/go-kratos/kratos/pkg/conf/paladin"
 	bm "github.com/go-kratos/kratos/pkg/net/http/blademaster"
-	"github.com/itering/subscan/internal/middleware"
-	"github.com/itering/subscan/internal/service"
-	"github.com/itering/subscan/plugins"
+	middlewares "github.com/kaigedong/subscan/internal/middleware"
+	"github.com/kaigedong/subscan/internal/service"
+	"github.com/kaigedong/subscan/plugins"
 )
 
 var (
@@ -57,6 +57,8 @@ func initRouter(e *bm.Engine) {
 			s.POST("extrinsic", extrinsic)
 			// Event
 			s.POST("events", events)
+			// Transfers
+			s.POST("transfers", transfers)
 
 			s.POST("check_hash", checkSearchHash)
 

@@ -3,8 +3,8 @@ package service
 import (
 	"strings"
 
-	"github.com/itering/subscan/model"
-	"github.com/itering/subscan/util"
+	"github.com/kaigedong/subscan/model"
+	"github.com/kaigedong/subscan/util"
 	"github.com/kaigedong/substrate-api-rpc/metadata"
 	"github.com/kaigedong/substrate-api-rpc/rpc"
 )

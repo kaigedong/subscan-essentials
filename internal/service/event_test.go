@@ -1,9 +1,10 @@
 package service
 
 import (
-	"github.com/itering/subscan/model"
-	"github.com/stretchr/testify/assert"
 	"testing"
+
+	"github.com/kaigedong/subscan/model"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestService_AddEvent(t *testing.T) {

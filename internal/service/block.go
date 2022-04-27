@@ -6,9 +6,9 @@ import (
 	"fmt"
 
 	"github.com/go-kratos/kratos/pkg/log"
-	"github.com/itering/subscan/model"
-	"github.com/itering/subscan/util"
-	"github.com/itering/subscan/util/address"
+	"github.com/kaigedong/subscan/model"
+	"github.com/kaigedong/subscan/util"
+	"github.com/kaigedong/subscan/util/address"
 	"github.com/kaigedong/substrate-api-rpc"
 	"github.com/kaigedong/substrate-api-rpc/rpc"
 	"github.com/kaigedong/substrate-api-rpc/storage"
@@ -191,6 +191,12 @@ func (s *Service) GetExtrinsicList(page, row int, order string, query ...string)
 		ejs = append(ejs, s.dao.ExtrinsicsAsJson(&extrinsic))
 	}
 	return ejs, count
+}
+
+func (s *Service) GetTransfersSampleByNums(address string, page, row int) ([]model.TransferJson, int) {
+	c := context.TODO()
+	transfers, count := s.dao.GetTransferList(c, address, page, row)
+	return transfers, count
 }
 
 func (s *Service) GetBlocksSampleByNums(page, row int) []model.SampleBlockJson {

@@ -2,9 +2,10 @@ package dao
 
 import (
 	"context"
+
 	"github.com/go-kratos/kratos/pkg/cache/redis"
-	"github.com/itering/subscan/configs"
 	"github.com/jinzhu/gorm"
+	"github.com/kaigedong/subscan/configs"
 )
 
 var (

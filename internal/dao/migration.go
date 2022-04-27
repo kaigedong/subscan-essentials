@@ -2,7 +2,8 @@ package dao
 
 import (
 	"context"
-	"github.com/itering/subscan/model"
+
+	"github.com/kaigedong/subscan/model"
 )
 
 func (d *Dao) Migration() {

@@ -1,4 +1,4 @@
-module github.com/itering/subscan
+module github.com/kaigedong/subscan
 
 go 1.12
 

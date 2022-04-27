@@ -2,15 +2,16 @@ package observer
 
 import (
 	"fmt"
-	"github.com/itering/subscan/internal/dao"
-	"github.com/kaigedong/substrate-api-rpc/pkg/recws"
 	"log"
 	"os"
 	"syscall"
 	"time"
 
-	"github.com/itering/subscan/internal/service"
-	"github.com/itering/subscan/util"
+	"github.com/kaigedong/subscan/internal/dao"
+	"github.com/kaigedong/substrate-api-rpc/pkg/recws"
+
+	"github.com/kaigedong/subscan/internal/service"
+	"github.com/kaigedong/subscan/util"
 	"github.com/sevlyar/go-daemon"
 )
 

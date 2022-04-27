@@ -1,13 +1,14 @@
 package http
 
 import (
-	"github.com/itering/subscan/internal/service"
 	"io"
 	"net/http"
 	"net/http/httptest"
 	"os"
 	"strings"
 	"testing"
+
+	"github.com/kaigedong/subscan/internal/service"
 
 	"github.com/go-kratos/kratos/pkg/conf/paladin"
 	bm "github.com/go-kratos/kratos/pkg/net/http/blademaster"

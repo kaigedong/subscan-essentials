@@ -1,9 +1,10 @@
 package dao
 
 import (
-	"github.com/itering/subscan/model"
-	"github.com/stretchr/testify/assert"
 	"testing"
+
+	"github.com/kaigedong/subscan/model"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestDao_CreateEvent(t *testing.T) {

@@ -3,8 +3,8 @@
 # Subscan Essentials
 
 ![License: GPL](https://img.shields.io/badge/license-GPL-blue.svg)
-[![Go Report Card](https://goreportcard.com/badge/github.com/itering/subscan)](https://goreportcard.com/report/github.com/itering/subscan)
-![subscan](https://github.com/itering/subscan/workflows/subscan/badge.svg)
+[![Go Report Card](https://goreportcard.com/badge/github.com/kaigedong/subscan)](https://goreportcard.com/report/github.com/kaigedong/subscan)
+![subscan](https://github.com/kaigedong/subscan/workflows/subscan/badge.svg)
 
 Subscan Essentials is a high-precision blockchain explorer scaffold project.
 It supports substrate-based blockchain networks with developer-friendly interface, standard or custom module parsing capabilities.

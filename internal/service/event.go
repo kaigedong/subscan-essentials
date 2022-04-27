@@ -2,11 +2,12 @@ package service
 
 import (
 	"fmt"
-	"github.com/itering/subscan/internal/dao"
-	"github.com/itering/subscan/model"
-	"github.com/itering/subscan/util"
-	"github.com/shopspring/decimal"
 	"strings"
+
+	"github.com/kaigedong/subscan/internal/dao"
+	"github.com/kaigedong/subscan/model"
+	"github.com/kaigedong/subscan/util"
+	"github.com/shopspring/decimal"
 )
 
 func (s *Service) AddEvent(
