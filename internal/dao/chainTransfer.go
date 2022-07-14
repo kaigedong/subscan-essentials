@@ -19,63 +19,66 @@ type OneField struct {
 	Value    string `json:"value"`
 }
 
-// TODO: 从两张表中查询！查询后结果结合起来返回
+// NOTE: 从两张表中查询！查询后结果结合起来返回
+// NOTE: 允许page, row参数
 func (d *Dao) GetTransferList(c context.Context, hexAddress string, page int, row int) ([]model.TransferJson, int) {
-	var outs []model.TransferJson
-
-	// 从Event表中查询
+	// 从Event表中查询到的transfer Event
 	var events []model.ChainEvent
 
-	query := d.db.Model(model.ChainEvent{}).
-		Where(model.ChainEvent{ModuleId: "balances", EventId: "Transfer"}).
-		Where("params LIKE ?", "%"+hexAddress+"%").
-		Scan(&events)
+	// 根据transfer Event获取到的转账记录
+	var transfer []model.TransferJson
+	blockNum, _ := d.GetFillBestBlockNum(context.TODO())
 
-	if query == nil || query.RecordNotFound() {
-		return nil, 0
+	for index := blockNum / model.SplitTableBlockNum; index >= 0; index-- {
+		query := d.db.Model(model.ChainEvent{BlockNum: index * model.SplitTableBlockNum}).
+			Where("module_id='balances' and event_id='Transfer' and params LIKE ?", "%"+hexAddress+"%").
+			Scan(&events)
+
+		if query == nil || query.RecordNotFound() {
+			continue
+		}
+
+		// 对于每一个Event，从Extrinsic表中查询对应的extrinsic
+		// 根据event-index,从extrinsic_index进行查询
+		for _, aEvent := range events {
+			var transferEvent TransferEvent
+			if err := json.Unmarshal([]byte(util.ToString(aEvent.Params)), &transferEvent); err != nil {
+				continue
+			}
+			if len(transferEvent) != 3 {
+				fmt.Println("Transfer event decoded len must be 3")
+				continue
+			}
+			var aExtrinsic model.ChainExtrinsic
+
+			newQuery := d.db.Model(model.ChainExtrinsic{BlockNum: aEvent.BlockNum}).Where(
+				"extrinsic_index=''", aEvent.EventIndex).Find(&aExtrinsic)
+
+			if newQuery == nil || newQuery.RecordNotFound() {
+				fmt.Println("### Error.....")
+				continue
+			}
+
+			amount, err := decimal.NewFromString(transferEvent[2].Value)
+			if err != nil {
+				continue
+			}
+
+			transfer = append(transfer, model.TransferJson{
+				From:           address.SS58Address(transferEvent[0].Value), // 将From转换成SS58
+				To:             address.SS58Address(transferEvent[1].Value),
+				Module:         aExtrinsic.CallModule,
+				Amount:         amount,
+				Hash:           aExtrinsic.ExtrinsicHash,
+				BlockTimestamp: aExtrinsic.BlockTimestamp,
+				BlockNum:       aExtrinsic.BlockNum,
+				ExtrinsicIndex: aExtrinsic.ExtrinsicIndex,
+				Success:        true,
+				Fee:            aExtrinsic.Fee,
+			})
+		}
+
 	}
 
-	// 对于每一个Event，从Extrinsic表中查询对应的extrinsic
-	// TODO: 根据event-index,从extrinsic_index进行查询
-	for _, aEvent := range events {
-
-		var transferEvent TransferEvent
-		if err := json.Unmarshal([]byte(util.ToString(aEvent.Params)), &transferEvent); err != nil {
-			fmt.Println("##### ERR: ", err)
-			continue
-		}
-		if len(transferEvent) != 3 {
-			fmt.Println("Transfer event decoded len must be 3")
-			continue
-		}
-
-		var aExtrinsic model.ChainExtrinsic
-		newQuery := d.db.Model(model.ChainExtrinsic{}).Where(model.ChainExtrinsic{
-			ExtrinsicIndex: aEvent.EventIndex,
-		}).Find(&aExtrinsic)
-
-		if newQuery == nil || newQuery.RecordNotFound() {
-			return nil, 0
-		}
-
-		amount, err := decimal.NewFromString(transferEvent[2].Value)
-		if err != nil {
-			continue
-		}
-
-		outs = append(outs, model.TransferJson{
-			From:           address.SS58Address(transferEvent[0].Value), // 将From转换成SS58
-			To:             address.SS58Address(transferEvent[1].Value),
-			Module:         aExtrinsic.CallModule,
-			Amount:         amount,
-			Hash:           aExtrinsic.ExtrinsicHash,
-			BlockTimestamp: aExtrinsic.BlockTimestamp,
-			BlockNum:       aExtrinsic.BlockNum,
-			ExtrinsicIndex: aExtrinsic.ExtrinsicIndex,
-			Success:        true,
-			Fee:            aExtrinsic.Fee,
-		})
-	}
-
-	return outs, len(outs)
+	return transfer, len(transfer)
 }
