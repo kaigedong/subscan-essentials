@@ -50,12 +50,12 @@ func (d *Dao) GetTransferList(c context.Context, hexAddress string, page int, ro
 				continue
 			}
 			var aExtrinsic model.ChainExtrinsic
-
-			newQuery := d.db.Model(model.ChainExtrinsic{BlockNum: aEvent.BlockNum}).Where(
-				"extrinsic_index=''", aEvent.EventIndex).Find(&aExtrinsic)
+			// NOTE: .Find找不到, .Limit同样会导致找不到
+			newQuery := d.db.Model(model.ChainExtrinsic{BlockNum: aEvent.BlockNum}).
+				Where("extrinsic_index=?", aEvent.EventIndex).Scan(&aExtrinsic)
 
 			if newQuery == nil || newQuery.RecordNotFound() {
-				fmt.Println("### Error.....")
+				fmt.Println("### Event Not Found in Extrinsics.....")
 				continue
 			}
 
